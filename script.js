@@ -26,13 +26,25 @@ function generatePassword() {
   return length;
   // error check.length
 }
+//these are the prompts the user encounter when they open the browser
 var includeLowercase = confirm("Do you want to include lowercase characters?");
 var includeUppercase = confirm("Do you want to include uppercase characters?");
 var includeNumeric = confirm("Do you want to include numeric characters?");
 var includeSpecial = confirm("Do you want to include special characters?");
 
+//this provides the selections of characters users can choose from for lower case, upper case, numeric, and special characters
 var charset = "";
 var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericChars = "0123456789";
 var specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+//this randomized the password generator process
+var password = "";
+  for (var i = 0; i < length; i++) {
+    var randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  
+//this is the message that is displayed for users' generated password
+  alert("Your generated password is: " + password);
